@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require("cors");
 const customerRoutes = require('./routes/customersRoute'); // Importa as rotas de "customers"
 const productRoutes = require('./routes/productRoute'); // Importa as rotas de "product"
+const pdvRoutes = require('./routes/pdvRoutes'); // Importa as rotas de "pdv"
 
 const app = express();
 const PORT = 8000;
@@ -18,6 +19,9 @@ app.use('/customers', customerRoutes);
 
 // Define as rotas de "product" usando o roteador
 app.use('/product', productRoutes);
+
+// Define as rotas de "pdv" usando o roteador
+app.use('/pdv', pdvRoutes);
 
 app.listen(PORT, () => {
     console.log(`Servidor rodando na porta ${PORT}`);

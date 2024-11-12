@@ -3,7 +3,7 @@ const { ObjectId } = require("mongodb");
 
 //  CRUD PRODUCT
 
-// Função para inserir um cliente na coleção "product"
+// Função para inserir um produto na coleção "product"
 async function insertProduct(product) {
     const db = await connect(); // Chame a função connect() corretamente aqui
     return db.collection("product").insertOne(product);

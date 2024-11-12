@@ -85,7 +85,7 @@ router.put("/update", async (req, res) => {
     const estoque_product = req.body.estoque_product;
 
     try {
-        const result = productDb.updateCustumers(
+        const result = productDb.updateProduct(
             id, 
             name_product,
             un_product,
