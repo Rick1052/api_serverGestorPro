@@ -42,7 +42,6 @@ router.post("/save", (req, res) => {
         // Retorna sucesso com o resultado
         res.status(200).json({
             message: "Pdv cadastrado com sucesso!",
-            result: result,
         });
     } catch (error) {
         // Retorna erro 500 se houver problemas no banco de dados ou outros

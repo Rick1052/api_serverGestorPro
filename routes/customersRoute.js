@@ -15,10 +15,6 @@ router.get("/", async (req, res) => {
         filters.nome = new RegExp(req.query.nome, "i"); // "i" faz a busca insensível ao caso
     }
 
-    if (req.query.idade) {
-        filters.idade = req.query.idade; // Filtro por idade
-    }
-
     try {
         const customers = await customerDb.findCustomers(filters); // Passa os filtros para a função find
         res.json(customers);
@@ -71,7 +67,6 @@ router.delete("/delete/:id", async (req, res) => {
     const id = req.params.id;
     try {
         const result = await customerDb.removeCustumers(id); 
-        console.log(result);
         res.json(result);  // Retorna o resultado da operação de exclusão
     } catch (error) {
         console.error(error);
