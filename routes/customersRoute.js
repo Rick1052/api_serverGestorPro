@@ -1,13 +1,16 @@
-const express = require('express');
-const router = express.Router();
-const customerDb = require("../access/customers"); // Importa as funções de banco de dados
-const { ObjectId } = require('mongodb');
+// customersRoute.js - Rotas relacionadas ao recurso "customers"
 
+const express = require('express'); // Importação do Express
+const router = express.Router(); // Criação do roteador do Express
+const customerDb = require("../access/customers"); // Importa as funções de banco de dados
+const { ObjectId } = require('mongodb'); // Conversão de ID para o formato MongoDB
+
+// Rota para obter clientes com base em filtros
 router.get("/", async (req, res) => {
-    const filters = {};
+    const filters = {}; // Objeto para armazenar os filtros de consulta
     
     if (req.query.id) {
-        filters._id = new ObjectId (req.query.id);
+        filters._id = new ObjectId (req.query.id); // Conversão do ID para formato MongoDB
     }
 
     if (req.query.nome) {
@@ -74,6 +77,7 @@ router.delete("/delete/:id", async (req, res) => {
     }
 });
 
+// Rota para atualizar um cliente
 router.put("/update", async (req, res) => {
 
     const id = req.body.id;
