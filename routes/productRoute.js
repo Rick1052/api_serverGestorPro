@@ -1,3 +1,5 @@
+// productRoute.js - Rotas relacionadas ao recurso "product"
+
 const express = require('express');
 const router = express.Router();
 const productDb = require("../access/product"); // Importa as funções de banco de dados
