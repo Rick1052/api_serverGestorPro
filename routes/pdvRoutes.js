@@ -1,7 +1,9 @@
-const express = require('express');
-const router = express.Router();
+// pdvRoutes.js - Rotas relacionadas ao recurso "pdv"
+
+const express = require('express'); // Importação do Express
+const router = express.Router(); // Criação do roteador do Express
 const pdvDb = require("../access/pdv"); // Importa as funções de banco de dados
-const { ObjectId } = require('mongodb');
+const { ObjectId } = require('mongodb'); // Conversão de ID para o formato MongoDB
 
 
 // Rota para obter o próximo número de venda
@@ -16,11 +18,12 @@ router.get('/nextpdv', async (req, res) => {
     }
 });
 
+// Rota para obter dados de PDV com filtros
 router.get("/", async (req, res) => {
     const filters = {};
     
     if (req.query.id) {
-        filters._id = new ObjectId (req.query.id);
+        filters._id = new ObjectId (req.query.id); // Filtro por ID
     }
 
     try {
@@ -32,6 +35,7 @@ router.get("/", async (req, res) => {
     }
 });
 
+// Rota para salvar dados de PDV
 router.post("/save", (req, res) => {
     const pdv = req.body;
 
